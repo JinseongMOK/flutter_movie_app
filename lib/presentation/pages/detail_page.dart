@@ -14,7 +14,6 @@ class DetailPage extends StatelessWidget {
             child: Container(
               height: 550,
               decoration: BoxDecoration(
-                color: Colors.amber,
                 image: DecorationImage(
                   image: NetworkImage(
                     'https://picsum.photos/200/300',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/core/poster.dart';
 
 class Popular extends StatelessWidget {
   const Popular({super.key});
@@ -17,19 +18,7 @@ class Popular extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(width: 30),
-                  Container(
-                    height: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        'https://picsum.photos/200/300',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                  poster(context),
                 ],
               ),
               Positioned(

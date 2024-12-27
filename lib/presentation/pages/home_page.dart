@@ -11,24 +11,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ListView(
-            children: [
-              titleText('가장 인기있는'),
-              MostPopular(),
-              titleText('현재 상영중'),
-              NowPlaying(),
-              titleText('인기순'),
-              Popular(),
-              titleText('평점 높은순'),
-              HighestRating(),
-              titleText('개봉예정'),
-              ComingSoon(),
-            ],
-          ),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: ListView(
+          children: [
+            titleText('가장 인기있는'),
+            MostPopular(),
+            titleText('현재 상영중'),
+            NowPlaying(),
+            titleText('인기순'),
+            Popular(),
+            titleText('평점 높은순'),
+            HighestRating(),
+            titleText('개봉예정'),
+            ComingSoon(),
+          ],
         ),
       ),
     );
