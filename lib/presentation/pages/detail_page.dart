@@ -49,6 +49,7 @@ class DetailPage extends StatelessWidget {
                 ),
                 SizedBox(height: 2),
                 Text('100분'),
+                SizedBox(height: 8),
                 Divider(
                   height: 1,
                   thickness: 1,
@@ -68,6 +69,8 @@ class DetailPage extends StatelessWidget {
                   thickness: 1,
                   color: Colors.grey[800],
                 ),
+                SizedBox(height: 8),
+                Text('Story' * 100),
               ],
             ),
           ),
