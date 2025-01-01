@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/presentation/widgets/coming_soon.dart';
 import 'package:flutter_movie_app/presentation/widgets/highest_rating.dart';
+import 'package:flutter_movie_app/presentation/widgets/now_playing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_movie_app/core/title_text.dart';
 import 'package:flutter_movie_app/presentation/provider/movie_provider.dart';
@@ -39,7 +40,10 @@ class _HomePageState extends ConsumerState<HomePage> {
             children: [
               titleText('가장 인기있는'),
               if (state.nowPlayingMovies != null)
-                MostPopular(movies: state.nowPlayingMovies!),
+                MostPopular(movies: state.popularMovies!),
+              titleText('현재 상영중'),
+              if (state.nowPlayingMovies != null)
+                NowPlaying(movies: state.nowPlayingMovies!),
               titleText('인기순'),
               if (state.popularMovies != null)
                 Popular(movies: state.popularMovies!),

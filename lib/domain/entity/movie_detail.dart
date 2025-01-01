@@ -1,6 +1,7 @@
 class MovieDetail {
   final int id;
   final String title;
+  final String originalTitle;
   final String overview;
   final String posterPath;
   final int voteCount;
@@ -17,6 +18,7 @@ class MovieDetail {
   MovieDetail({
     required this.id,
     required this.title,
+    required this.originalTitle,
     required this.overview,
     required this.posterPath,
     required this.voteCount,

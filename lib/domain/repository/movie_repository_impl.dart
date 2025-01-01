@@ -95,6 +95,7 @@ class MovieRepositoryImpl implements MovieRepository {
       popularity: response.popularity,
       revenue: response.revenue,
       tagline: response.tagline,
+      originalTitle: '',
     );
   }
 }

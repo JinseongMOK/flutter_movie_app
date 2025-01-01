@@ -90,8 +90,10 @@ class MovieDataSourceImpl implements MovieDataSource {
           'language': 'ko-KR',
         },
       );
+      print('Movie Detail Response: ${response.data}');
       return MovieDetailDto.fromJson(response.data);
     } catch (e) {
+      print('Error fetching movie detail: $e');
       return null;
     }
   }
