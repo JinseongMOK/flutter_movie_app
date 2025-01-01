@@ -76,10 +76,13 @@ class MovieRepositoryImpl implements MovieRepository {
       voteAverage: response.voteAverage,
       genres: response.genres.map((genre) => genre.name).toList(),
       budget: response.budget,
-      productionCompanyLogos: [],
-      popularity: response.popularity ?? 0.0,
-      revenue: response.revenue ?? 0,
-      tagline: response.tagline ?? '',
+      productionCompanyLogos: response.productionCompanies
+          .map((company) => company.logoPath ?? '')
+          .where((logo) => logo.isNotEmpty)
+          .toList(),
+      popularity: response.popularity,
+      revenue: response.revenue,
+      tagline: response.tagline,
     );
   }
 }

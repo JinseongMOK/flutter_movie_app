@@ -52,5 +52,6 @@ class MovieDetail {
     required this.title,
     required this.voteAverage,
     required this.voteCount,
+    required String posterPath,
   });
 }
