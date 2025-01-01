@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/core/poster.dart';
+import 'package:flutter_movie_app/domain/entity/movie.dart';
 
 class Popular extends StatelessWidget {
-  const Popular({super.key});
+  final List<Movie> movies;
+
+  const Popular({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -11,21 +14,22 @@ class Popular extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => const SizedBox(width: 8),
-        itemCount: 20,
+        itemCount: movies.length,
         itemBuilder: (context, index) {
+          final movie = movies[index];
           return Stack(
             children: [
               Row(
                 children: [
-                  SizedBox(width: 30),
-                  poster(context),
+                  const SizedBox(width: 30),
+                  poster(context, movie: movie),
                 ],
               ),
               Positioned(
                 bottom: -25,
                 child: Text(
                   '${index + 1}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 100,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,

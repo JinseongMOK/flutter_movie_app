@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/core/poster.dart';
+import 'package:flutter_movie_app/domain/entity/movie.dart';
 
 class HighestRating extends StatelessWidget {
-  const HighestRating({super.key});
+  final List<Movie> movies;
+
+  const HighestRating({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +16,9 @@ class HighestRating extends StatelessWidget {
         separatorBuilder: (BuildContext context, int index) {
           return const SizedBox(width: 12);
         },
-        itemCount: 20,
+        itemCount: movies.length,
         itemBuilder: (BuildContext context, int index) {
-          return poster(context);
+          return poster(context, movie: movies[index]);
         },
       ),
     );

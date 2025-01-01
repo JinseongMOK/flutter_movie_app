@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/presentation/pages/detail_page.dart';
+import 'package:flutter_movie_app/domain/entity/movie.dart';
 
 class MostPopular extends StatelessWidget {
-  const MostPopular({super.key});
+  final List<Movie> movies;
+
+  const MostPopular({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    if (movies.isEmpty) return const SizedBox.shrink();
+
+    final mostPopularMovie = movies.first;
+
+    return Container(
       height: 500,
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DetailPage()),
-          );
-        },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.network(
-            'https://picsum.photos/200/300',
-            fit: BoxFit.cover,
-          ),
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 16),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.network(
+          mostPopularMovie.fullPosterPath,
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.cover,
         ),
       ),
     );

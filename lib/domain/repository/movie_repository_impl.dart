@@ -17,6 +17,9 @@ class MovieRepositoryImpl implements MovieRepository {
         .map((dto) => Movie(
               id: dto.id,
               posterPath: dto.posterPath ?? '',
+              title: dto.title,
+              voteAverage: dto.voteAverage.toDouble(),
+              releaseDate: dto.releaseDate,
             ))
         .toList();
   }
@@ -30,6 +33,9 @@ class MovieRepositoryImpl implements MovieRepository {
         .map((dto) => Movie(
               id: dto.id,
               posterPath: dto.posterPath ?? '',
+              title: dto.title,
+              voteAverage: dto.voteAverage.toDouble(),
+              releaseDate: dto.releaseDate,
             ))
         .toList();
   }
@@ -43,6 +49,9 @@ class MovieRepositoryImpl implements MovieRepository {
         .map((dto) => Movie(
               id: dto.id,
               posterPath: dto.posterPath ?? '',
+              title: dto.title,
+              voteAverage: dto.voteAverage.toDouble(),
+              releaseDate: dto.releaseDate,
             ))
         .toList();
   }
@@ -56,6 +65,9 @@ class MovieRepositoryImpl implements MovieRepository {
         .map((dto) => Movie(
               id: dto.id,
               posterPath: dto.posterPath ?? '',
+              title: dto.title,
+              voteAverage: dto.voteAverage.toDouble(),
+              releaseDate: dto.releaseDate,
             ))
         .toList();
   }

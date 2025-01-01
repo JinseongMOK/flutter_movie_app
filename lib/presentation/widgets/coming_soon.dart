@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/core/poster.dart';
+import 'package:flutter_movie_app/domain/entity/movie.dart';
 
 class ComingSoon extends StatelessWidget {
-  const ComingSoon({super.key});
+  final List<Movie> movies;
+
+  const ComingSoon({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +13,11 @@ class ComingSoon extends StatelessWidget {
       height: 180,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (BuildContext context, int index) {
-          return const SizedBox(width: 12);
-        },
-        itemCount: 20,
-        itemBuilder: (BuildContext context, int index) {
-          return poster(context);
+        separatorBuilder: (context, index) => const SizedBox(width: 8),
+        itemCount: movies.length,
+        itemBuilder: (context, index) {
+          final movie = movies[index];
+          return poster(context, movie: movie);
         },
       ),
     );
