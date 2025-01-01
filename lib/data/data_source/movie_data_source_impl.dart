@@ -84,16 +84,27 @@ class MovieDataSourceImpl implements MovieDataSource {
   @override
   Future<MovieDetailDto?> fetchMovieDetail(int id) async {
     try {
-      final response = await _dio.get(
+      final enResponse = await _dio.get(
+        '/movie/$id',
+        queryParameters: {
+          'language': 'en-US',
+        },
+      );
+
+      final koResponse = await _dio.get(
         '/movie/$id',
         queryParameters: {
           'language': 'ko-KR',
         },
       );
-      print('Movie Detail Response: ${response.data}');
-      return MovieDetailDto.fromJson(response.data);
+
+      final Map<String, dynamic> mergedData = {
+        ...koResponse.data,
+        'original_title': enResponse.data['original_title'] as String,
+      };
+
+      return MovieDetailDto.fromJson(mergedData);
     } catch (e) {
-      print('Error fetching movie detail: $e');
       return null;
     }
   }

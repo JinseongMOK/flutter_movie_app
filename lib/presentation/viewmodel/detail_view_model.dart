@@ -12,9 +12,7 @@ class DetailViewModel extends StateNotifier<DetailState> {
 
   Future<void> fetchMovieDetail(int id) async {
     state = state.copyWith(isLoading: true);
-
     final movieDetail = await _getMovieDetailUseCase.execute(id);
-
     state = state.copyWith(
       isLoading: false,
       movieDetail: movieDetail,

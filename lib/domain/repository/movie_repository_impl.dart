@@ -94,8 +94,7 @@ class MovieRepositoryImpl implements MovieRepository {
           .toList(),
       popularity: response.popularity,
       revenue: response.revenue,
-      tagline: response.tagline,
-      originalTitle: '',
+      originalTitle: response.originalTitle,
     );
   }
 }

@@ -13,7 +13,6 @@ class MovieDetail {
   final List<String> productionCompanyLogos;
   final double popularity;
   final int revenue;
-  final String tagline;
 
   MovieDetail({
     required this.id,
@@ -30,8 +29,12 @@ class MovieDetail {
     required this.productionCompanyLogos,
     required this.popularity,
     required this.revenue,
-    required this.tagline,
   });
 
   String get fullPosterPath => 'https://image.tmdb.org/t/p/w500$posterPath';
+
+  @override
+  String toString() {
+    return 'MovieDetail(id: $id, title: $title, originalTitle: $originalTitle)';
+  }
 }
