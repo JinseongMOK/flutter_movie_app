@@ -60,9 +60,7 @@ class DetailPage extends ConsumerWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  movie.originalTitle,
-                ),
+                Text(movie.originalTitle),
                 Text('${movie.runtime}분'),
                 Divider(),
                 SizedBox(
@@ -120,6 +118,43 @@ class DetailPage extends ConsumerWidget {
                         label: '수익',
                       ),
                     ],
+                  ),
+                ),
+                SizedBox(height: 16),
+                SizedBox(
+                  height: 60,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: 8),
+                    itemCount: movie.productionCompanyLogos.length,
+                    itemBuilder: (context, index) {
+                      final logoPath = movie.productionCompanyLogos[index];
+                      return Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 21, vertical: 15),
+                        color: Colors.white,
+                        child: logoPath.isNotEmpty
+                            ? Image.network(
+                                'https://image.tmdb.org/t/p/w200$logoPath',
+                                height: 40,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return const Center(
+                                    child: Text(
+                                      '로고 없음',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  );
+                                },
+                              )
+                            : const Center(
+                                child: Text(
+                                  '로고 없음',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
+                      );
+                    },
                   ),
                 ),
               ],
