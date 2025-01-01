@@ -32,11 +32,14 @@ class DetailPage extends ConsumerWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 550,
-            child: Image.network(
-              movie.fullPosterPath,
-              width: double.infinity,
-              height: 550,
-              fit: BoxFit.cover,
+            child: Hero(
+              tag: 'movie_${movie.id}',
+              child: Image.network(
+                movie.fullPosterPath,
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(
